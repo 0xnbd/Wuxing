@@ -1,4 +1,4 @@
-* @1900-2100区间内的公历、农历互转
+/* @1900-2100区间内的公历、农历互转
 * @charset UTF-8
 * @Author  Jea杨(JJonline@JJonline.Cn) 
 * @Time    2014-7-21
