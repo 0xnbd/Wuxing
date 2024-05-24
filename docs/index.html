@@ -30,8 +30,8 @@
             const lunarDateString = `${lunar.lunarYear}年${lunar.lunarMonth}月${lunar.lunarDay}日`;
             const heavenlyStem = "甲乙丙丁戊己庚辛壬癸";
             const earthlyBranch = "子丑寅卯辰巳午未申酉戌亥";
-            const yearHeavenlyStem = heavenlyStem.charAt((lunarDate.lYear - 4) % 10);
-            const yearEarthlyBranch = earthlyBranch.charAt((lunarDate.lYear - 4) % 12);
+            const yearHeavenlyStem = heavenlyStem.charAt((lunar.lunarYear - 4) % 10);
+            const yearEarthlyBranch = earthlyBranch.charAt((lunar.lunarYear - 4) % 12);
             document.getElementById("lunarResult").textContent = `农历日期：${lunarDateString}，天干地支：${yearHeavenlyStem}${yearEarthlyBranch}`;
         }
     </script>
