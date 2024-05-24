@@ -21,7 +21,6 @@
         function convertToLunar() {
             const inputDate = document.getElementById("inputDate").value;
             const [year, month, day] = inputDate.split("-");
-			var calendar = new Calendar();
             const lunarDate = calendar.solar2lunar(parseInt(year), parseInt(month), parseInt(day));
             const lunarDateString = `${lunarDate.lYear}年${lunarDate.lMonth}月${lunarDate.lDay}日`;
             const heavenlyStem = "甲乙丙丁戊己庚辛壬癸";
