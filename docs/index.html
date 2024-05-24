@@ -6,7 +6,7 @@
     <title>天干地支五行工具</title>
 	<link href="https://cdn.jsdelivr.net/npm/calendar.js@0.4.1/css/calendar.css" rel="stylesheet" type="text/css">
 	<script src="https://cdn.jsdelivr.net/npm/calendar.js@0.4.1/index.global.js"></script>
-	<script src="wuxing.js"></script>
+	<script src="calutils.js"></script>
 </head>
 
 <body>
@@ -21,17 +21,13 @@
         function convertToLunar() {
             const inputDate = document.getElementById("inputDate").value;
             const [year, month, day] = inputDate.split("-");
-			var converter = new CalendarUtils();
-			var solar = new Solar();
-			solar.solarYear = year;
-			solar.solarMonth = month;
-			solar.solarDay = day;
-			var lunar = converter.SolarToLunar(solar);
-            const lunarDateString = `${lunar.lunarYear}年${lunar.lunarMonth}月${lunar.lunarDay}日`;
+			var calendar = new Calendar();
+            const lunarDate = calendar.solar2lunar(parseInt(year), parseInt(month), parseInt(day));
+            const lunarDateString = `${lunarDate.lYear}年${lunarDate.lMonth}月${lunarDate.lDay}日`;
             const heavenlyStem = "甲乙丙丁戊己庚辛壬癸";
             const earthlyBranch = "子丑寅卯辰巳午未申酉戌亥";
-            const yearHeavenlyStem = heavenlyStem.charAt((lunar.lunarYear - 4) % 10);
-            const yearEarthlyBranch = earthlyBranch.charAt((lunar.lunarYear - 4) % 12);
+            const yearHeavenlyStem = heavenlyStem.charAt((lunarDate.lYear - 4) % 10);
+            const yearEarthlyBranch = earthlyBranch.charAt((lunarDate.lYear - 4) % 12);
             document.getElementById("lunarResult").textContent = `农历日期：${lunarDateString}，天干地支：${yearHeavenlyStem}${yearEarthlyBranch}`;
         }
     </script>
