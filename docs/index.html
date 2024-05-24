@@ -21,7 +21,7 @@
         function convertToLunar() {
             const inputDate = document.getElementById("inputDate").value;
             const [year, month, day] = inputDate.split("-");
-			var converter = new LunarSolarUtils();
+			var converter = new CalenderUtils();
 			var solar = new Solar();
 			solar.solarYear = year;
 			solar.solarMonth = month;
