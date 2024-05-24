@@ -23,9 +23,11 @@
             const [year, month, day] = inputDate.split("-");
 			console.log([year, month, day])
             // const lunarDate = calendar.solar2lunar(parseInt(year), parseInt(month), parseInt(day));
-			lunarDate.lYear = 2024
-			lunarDate.lMonth = 4
-			lunarDate.lDay = 18
+			lunarData = {
+				lYear: 2024,
+				lMonth: 5,
+				lDay:18
+			}
             const lunarDateString = `${lunarDate.lYear}年${lunarDate.lMonth}月${lunarDate.lDay}日`;
             const heavenlyStem = "甲乙丙丁戊己庚辛壬癸";
             const earthlyBranch = "子丑寅卯辰巳午未申酉戌亥";
