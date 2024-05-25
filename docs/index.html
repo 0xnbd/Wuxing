@@ -6,6 +6,7 @@
     <title>天干地支五行工具</title>
 	<link href="https://cdn.jsdelivr.net/npm/calendar.js@0.4.1/css/calendar.css" rel="stylesheet" type="text/css">
 	<script src="https://cdn.jsdelivr.net/npm/calendar.js@0.4.1/index.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
 	<script src="calutils.js"></script>
 </head>
 
@@ -15,7 +16,7 @@
     <input type="date" id="inputDate">
     <button onclick="convertToLunar()">转换</button>
     <p id="lunarResult"></p>
-
+	<p id="Result"></p>
     <script>
 	  
         function convertToLunar() {
@@ -29,6 +30,13 @@
             const yearEarthlyBranch = earthlyBranch.charAt((lunarDate.lYear - 4) % 12);
             document.getElementById("lunarResult").textContent = `农历日期：${lunarDateString}  ${lunarDate.gzYear}年 ${lunarDate.gzMonth}月 ${lunarDate.gzDay}日`;
         }
+    </script>
+
+	<script>
+	  function readData(){
+	  const parser = new PublicGoogleSheetsParser('1t52Ig7zyeOWOK8rKJEhoUfyYRlNCRjbgyvajOmrH4RI')
+	  parser.parse().then(data => console.log(data))
+	  }
     </script>
 </body>
 </html>
