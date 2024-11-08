@@ -14,8 +14,28 @@
     <input type="date" id="inputDate">
     <button onclick="convertToLunar()">转换</button>
     <p id="lunarResult"></p>
-	<button onclick="readData()">测试请按</button>
-	<p id="Result"></p>
+	<button id="button1">测试请按</button>
+	<p id="Result"> 	</p>
+	<!-- <p id="result">Result will be displayed here</p> -->
+    <script type="module">
+      import init, { add, get_draw_result } from './pkg/wasm_lib.js';
+
+        async function run() {
+            // Initialize the WASM module
+            await init();
+
+			// Call the Rust function
+			const result = get_draw_result(); // Extract values from the result
+			const a = result.a;
+			const b = result.b;
+			const c = result.c;
+			const message = result.message; // Display the result
+			document.getElementById('Result').innerText = `${a}, ${b}, ${c}, ${message}`;
+        }
+	  document.getElementById('button1').addEventListener('click', run);
+    </script>
+
+
     <script>
 	  
         function convertToLunar() {
